@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function clearData(){
+      document.getElementById("data").innerHTML=""
+    }
+    function displayData(response)
+    {length=response.data.length;
+      for(var i=0;i<length;i++){
+      
+      // document.getElementById("username").innerHTML = response.data[i].username;
+      // document.getElementById("instrument").innerHTML = response.data[i].instrument;
+      // document.getElementById("email").innerHTML = response.data[i].email;
+      // document.getElementById("city").innerHTML = response.data[i].city;
+      // document.getElementById("genre").innerHTML = response.data[i].genre;
+      // document.getElementById("level").innerHTML = response.data[i].level;
+     
+       document.getElementById("data").innerHTML+=` 
+       <div class="container-fluid" style="border:5px solid black">
+       <div class="row">
+          <div class="col-sm-6" id="username"+ style="background-color:yellow;">${response.data[i].userName}</div>
+          <div class="col-sm-6" id="instrument"style="background-color:orange;">email:${response.data[i].email}</div>
+        </div>
+        <br>
+        
+        <div class="row">
+          <div class="col-sm" id="email" style="background-color:yellow;">instrument:${response.data[i].instrument}</div>
+   
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm" id="city" style="background-color:yellow;">city:${response.data[i].city}</div>
+          <div class="col-sm" id="genre" style="background-color:orange;">genre:${response.data[i].genre}</div>
+          <div class="col-sm" id="level" style="background-color:orange;">level:${response.data[i].level}</div>
+         
+        </div>
+        <br>
+     
+        </div>
+  
+      
+      `
+      // var data=document.createElement(a);
+      // node.appendChild(data);
+      // document.getElementById("data0").appendChild(node)
+      console.log(username);
+    
+    }}
+    function displayEventData(response)
+    {length=response.data.length;
+      for(var i=0;i<length;i++){
+      
+      // document.getElementById("username").innerHTML = response.data[i].username;
+      // document.getElementById("instrument").innerHTML = response.data[i].instrument;
+      // document.getElementById("email").innerHTML = response.data[i].email;
+      // document.getElementById("city").innerHTML = response.data[i].city;
+      // document.getElementById("genre").innerHTML = response.data[i].genre;
+      // document.getElementById("level").innerHTML = response.data[i].level;
+     
+       document.getElementById("data").innerHTML+=` 
+       <div class="container-fluid" style="border:5px solid black">
+       <div class="row">
+          <div class="col-sm-6" id="username"+ style="background-color:yellow;">${response.data[i].eventName}</div>
+          <div class="col-sm-6" id="instrument"style="background-color:orange;">Place:${response.data[i].eventPlace}</div>
+        </div>
+        <br>
+        
+        <div class="row">
+          <div class="col-sm" id="email" style="background-color:yellow;">Location:${response.data[i].eventLocation}</div>
+   
+          <div class="col-sm" id="email" style="background-color:yellow;">contact:${response.data[i].Contact}</div>
+   
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm" id="city" style="background-color:yellow;">Type:${response.data[i].eventType}</div>
+          <div class="col-sm" id="genre" style="background-color:orange;">worth:${response.data[i].Salary}</div>
+          <div class="col-sm" id="level" style="background-color:orange;">Status:${response.data[i].Status}</div>
+         
+        </div>
+        <br>
+     
+        </div>
+      `
+}}
+    function getguitar()
+    {
+      axios.get('http://localhost:3020/guitar')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayData(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  
+    }
+  
+    
+    function getdrum()
+    {
+  axios.get('http://localhost:3020/drum')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayData(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  
+    }
+    function getbass()
+    {
+  axios.get('http://localhost:3020/bass')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayData(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  
+    }
+    function getvocals()
+    {
+  axios.get('http://localhost:3020/vocals')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayData(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  
+    }
+    function getkeyboard()
+    {
+  axios.get('http://localhost:3020/keyboard')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayData(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  
+    }
+    function getevent()
+    {
+      axios.get('http://localhost:3020/event')
+    .then(function (response) {
+      // handle success
+      clearData();
+      displayEventData(response);
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  }</script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        INSTRUMENTS
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#" onclick=getguitar()>GUITARISTS</a>
+        <a class="dropdown-item" href="#" onclick=getdrum()>DRUMMER</a>
+        <a class="dropdown-item" href="#" onclick=getbass()>BASS</a>
+        <a class="dropdown-item" href="#" onclick=getvocals()>VOCALS</a>
+        <a class="dropdown-item" href="#" onclick=getkeyboard()>KEYBOARDS</a>
+      </div>
+    </li>
+  </ul>
+  <li class="nav-item">
+    <a class="nav-link" onclick=getevent() >EVENTS</a>
+  </li>
+</nav>
+<br>
+  
+<div class="container-fluid" id="data">
+  
+</div>
+
+</body>
+</html>
